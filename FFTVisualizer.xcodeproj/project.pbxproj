@@ -7,21 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		274D164F1C21B9CF006BE696 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D164E1C21B9CF006BE696 /* AppDelegate.swift */; };
-		274D16511C21B9CF006BE696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 274D16501C21B9CF006BE696 /* Assets.xcassets */; };
-		274D16541C21B9CF006BE696 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274D16521C21B9CF006BE696 /* MainMenu.xib */; };
-		274F88711C22277F00D5302A /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274F88701C22277F00D5302A /* WaveformView.swift */; };
-		275B63DA1C249B510076C151 /* FFTAnalzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275B63D91C249B510076C151 /* FFTAnalzer.swift */; };
+		279FEA981C28667300BAB264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FEA911C28667300BAB264 /* AppDelegate.swift */; };
+		279FEA991C28667300BAB264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 279FEA921C28667300BAB264 /* Assets.xcassets */; };
+		279FEA9A1C28667300BAB264 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279FEA931C28667300BAB264 /* MainMenu.xib */; };
+		279FEA9B1C28667300BAB264 /* FFTAnalzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FEA951C28667300BAB264 /* FFTAnalzer.swift */; };
+		279FEA9C1C28667300BAB264 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 279FEA961C28667300BAB264 /* Info.plist */; };
+		279FEA9D1C28667300BAB264 /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FEA971C28667300BAB264 /* WaveformView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		274D164B1C21B9CF006BE696 /* FFTVisualizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FFTVisualizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		274D164E1C21B9CF006BE696 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		274D16501C21B9CF006BE696 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		274D16531C21B9CF006BE696 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		274D16551C21B9CF006BE696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		274F88701C22277F00D5302A /* WaveformView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
-		275B63D91C249B510076C151 /* FFTAnalzer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFTAnalzer.swift; sourceTree = "<group>"; };
+		279FEA911C28667300BAB264 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		279FEA921C28667300BAB264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		279FEA941C28667300BAB264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		279FEA951C28667300BAB264 /* FFTAnalzer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFTAnalzer.swift; sourceTree = "<group>"; };
+		279FEA961C28667300BAB264 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		279FEA971C28667300BAB264 /* WaveformView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +39,7 @@
 		274D16421C21B9CF006BE696 = {
 			isa = PBXGroup;
 			children = (
-				274D164D1C21B9CF006BE696 /* FFTVisualizer */,
+				279FEA901C28667300BAB264 /* FFTVisualizer */,
 				274D164C1C21B9CF006BE696 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,18 +52,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		274D164D1C21B9CF006BE696 /* FFTVisualizer */ = {
+		279FEA901C28667300BAB264 /* FFTVisualizer */ = {
 			isa = PBXGroup;
 			children = (
-				274D164E1C21B9CF006BE696 /* AppDelegate.swift */,
-				275B63D91C249B510076C151 /* FFTAnalzer.swift */,
-				274D16501C21B9CF006BE696 /* Assets.xcassets */,
-				274D16521C21B9CF006BE696 /* MainMenu.xib */,
-				274F88701C22277F00D5302A /* WaveformView.swift */,
-				274D16551C21B9CF006BE696 /* Info.plist */,
+				279FEA911C28667300BAB264 /* AppDelegate.swift */,
+				279FEA921C28667300BAB264 /* Assets.xcassets */,
+				279FEA931C28667300BAB264 /* MainMenu.xib */,
+				279FEA951C28667300BAB264 /* FFTAnalzer.swift */,
+				279FEA961C28667300BAB264 /* Info.plist */,
+				279FEA971C28667300BAB264 /* WaveformView.swift */,
 			);
-			name = FFTVisualizer;
-			path = AudioTutorialSwift;
+			path = FFTVisualizer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,8 +123,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				274D16511C21B9CF006BE696 /* Assets.xcassets in Resources */,
-				274D16541C21B9CF006BE696 /* MainMenu.xib in Resources */,
+				279FEA991C28667300BAB264 /* Assets.xcassets in Resources */,
+				279FEA9C1C28667300BAB264 /* Info.plist in Resources */,
+				279FEA9A1C28667300BAB264 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,19 +136,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				274D164F1C21B9CF006BE696 /* AppDelegate.swift in Sources */,
-				274F88711C22277F00D5302A /* WaveformView.swift in Sources */,
-				275B63DA1C249B510076C151 /* FFTAnalzer.swift in Sources */,
+				279FEA981C28667300BAB264 /* AppDelegate.swift in Sources */,
+				279FEA9B1C28667300BAB264 /* FFTAnalzer.swift in Sources */,
+				279FEA9D1C28667300BAB264 /* WaveformView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		274D16521C21B9CF006BE696 /* MainMenu.xib */ = {
+		279FEA931C28667300BAB264 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				274D16531C21B9CF006BE696 /* Base */,
+				279FEA941C28667300BAB264 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
