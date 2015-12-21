@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:AudioTutorialSwift.xcodeproj">
+      location = "self:/Users/mike/Cocoa/Tests/AudioTutorialSwift/FFTVisualizer.xcodeproj">
    </FileRef>
 </Workspace>

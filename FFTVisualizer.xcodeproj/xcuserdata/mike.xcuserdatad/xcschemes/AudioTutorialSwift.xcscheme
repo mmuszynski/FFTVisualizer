@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "274D164A1C21B9CF006BE696"
-               BuildableName = "AudioTutorialSwift.app"
-               BlueprintName = "AudioTutorialSwift"
-               ReferencedContainer = "container:AudioTutorialSwift.xcodeproj">
+               BuildableName = "FFTVisualizer.app"
+               BlueprintName = "FFTVisualizer"
+               ReferencedContainer = "container:FFTVisualizer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "274D164A1C21B9CF006BE696"
-            BuildableName = "AudioTutorialSwift.app"
-            BlueprintName = "AudioTutorialSwift"
-            ReferencedContainer = "container:AudioTutorialSwift.xcodeproj">
+            BuildableName = "FFTVisualizer.app"
+            BlueprintName = "FFTVisualizer"
+            ReferencedContainer = "container:FFTVisualizer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "274D164A1C21B9CF006BE696"
-            BuildableName = "AudioTutorialSwift.app"
-            BlueprintName = "AudioTutorialSwift"
-            ReferencedContainer = "container:AudioTutorialSwift.xcodeproj">
+            BuildableName = "FFTVisualizer.app"
+            BlueprintName = "FFTVisualizer"
+            ReferencedContainer = "container:FFTVisualizer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "274D164A1C21B9CF006BE696"
-            BuildableName = "AudioTutorialSwift.app"
-            BlueprintName = "AudioTutorialSwift"
-            ReferencedContainer = "container:AudioTutorialSwift.xcodeproj">
+            BuildableName = "FFTVisualizer.app"
+            BlueprintName = "FFTVisualizer"
+            ReferencedContainer = "container:FFTVisualizer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

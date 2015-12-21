@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		274D164B1C21B9CF006BE696 /* AudioTutorialSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioTutorialSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		274D164B1C21B9CF006BE696 /* FFTVisualizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FFTVisualizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		274D164E1C21B9CF006BE696 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		274D16501C21B9CF006BE696 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		274D16531C21B9CF006BE696 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 		274D16421C21B9CF006BE696 = {
 			isa = PBXGroup;
 			children = (
-				274D164D1C21B9CF006BE696 /* AudioTutorialSwift */,
+				274D164D1C21B9CF006BE696 /* FFTVisualizer */,
 				274D164C1C21B9CF006BE696 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,12 +46,12 @@
 		274D164C1C21B9CF006BE696 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				274D164B1C21B9CF006BE696 /* AudioTutorialSwift.app */,
+				274D164B1C21B9CF006BE696 /* FFTVisualizer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		274D164D1C21B9CF006BE696 /* AudioTutorialSwift */ = {
+		274D164D1C21B9CF006BE696 /* FFTVisualizer */ = {
 			isa = PBXGroup;
 			children = (
 				274D164E1C21B9CF006BE696 /* AppDelegate.swift */,
@@ -61,15 +61,16 @@
 				274F88701C22277F00D5302A /* WaveformView.swift */,
 				274D16551C21B9CF006BE696 /* Info.plist */,
 			);
+			name = FFTVisualizer;
 			path = AudioTutorialSwift;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		274D164A1C21B9CF006BE696 /* AudioTutorialSwift */ = {
+		274D164A1C21B9CF006BE696 /* FFTVisualizer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 274D16581C21B9CF006BE696 /* Build configuration list for PBXNativeTarget "AudioTutorialSwift" */;
+			buildConfigurationList = 274D16581C21B9CF006BE696 /* Build configuration list for PBXNativeTarget "FFTVisualizer" */;
 			buildPhases = (
 				274D16471C21B9CF006BE696 /* Sources */,
 				274D16481C21B9CF006BE696 /* Frameworks */,
@@ -79,9 +80,9 @@
 			);
 			dependencies = (
 			);
-			name = AudioTutorialSwift;
+			name = FFTVisualizer;
 			productName = AudioTutorialSwift;
-			productReference = 274D164B1C21B9CF006BE696 /* AudioTutorialSwift.app */;
+			productReference = 274D164B1C21B9CF006BE696 /* FFTVisualizer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +100,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 274D16461C21B9CF006BE696 /* Build configuration list for PBXProject "AudioTutorialSwift" */;
+			buildConfigurationList = 274D16461C21B9CF006BE696 /* Build configuration list for PBXProject "FFTVisualizer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -112,7 +113,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				274D164A1C21B9CF006BE696 /* AudioTutorialSwift */,
+				274D164A1C21B9CF006BE696 /* FFTVisualizer */,
 			);
 		};
 /* End PBXProject section */
@@ -243,8 +244,8 @@
 				INFOPLIST_FILE = AudioTutorialSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = mmuszynski.AudioTutorialSwift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = mmuszynski.FFTVisualizer;
+				PRODUCT_NAME = FFTVisualizer;
 			};
 			name = Debug;
 		};
@@ -256,15 +257,15 @@
 				INFOPLIST_FILE = AudioTutorialSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = mmuszynski.AudioTutorialSwift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = mmuszynski.FFTVisualizer;
+				PRODUCT_NAME = FFTVisualizer;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		274D16461C21B9CF006BE696 /* Build configuration list for PBXProject "AudioTutorialSwift" */ = {
+		274D16461C21B9CF006BE696 /* Build configuration list for PBXProject "FFTVisualizer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				274D16561C21B9CF006BE696 /* Debug */,
@@ -273,7 +274,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		274D16581C21B9CF006BE696 /* Build configuration list for PBXNativeTarget "AudioTutorialSwift" */ = {
+		274D16581C21B9CF006BE696 /* Build configuration list for PBXNativeTarget "FFTVisualizer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				274D16591C21B9CF006BE696 /* Debug */,
