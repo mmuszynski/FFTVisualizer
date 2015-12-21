@@ -10,6 +10,8 @@
 		274D164F1C21B9CF006BE696 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D164E1C21B9CF006BE696 /* AppDelegate.swift */; };
 		274D16511C21B9CF006BE696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 274D16501C21B9CF006BE696 /* Assets.xcassets */; };
 		274D16541C21B9CF006BE696 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274D16521C21B9CF006BE696 /* MainMenu.xib */; };
+		274F88711C22277F00D5302A /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274F88701C22277F00D5302A /* WaveformView.swift */; };
+		275B63DA1C249B510076C151 /* FFTAnalzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275B63D91C249B510076C151 /* FFTAnalzer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +20,8 @@
 		274D16501C21B9CF006BE696 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		274D16531C21B9CF006BE696 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		274D16551C21B9CF006BE696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		274F88701C22277F00D5302A /* WaveformView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
+		275B63D91C249B510076C151 /* FFTAnalzer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFTAnalzer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +55,10 @@
 			isa = PBXGroup;
 			children = (
 				274D164E1C21B9CF006BE696 /* AppDelegate.swift */,
+				275B63D91C249B510076C151 /* FFTAnalzer.swift */,
 				274D16501C21B9CF006BE696 /* Assets.xcassets */,
 				274D16521C21B9CF006BE696 /* MainMenu.xib */,
+				274F88701C22277F00D5302A /* WaveformView.swift */,
 				274D16551C21B9CF006BE696 /* Info.plist */,
 			);
 			path = AudioTutorialSwift;
@@ -129,6 +135,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				274D164F1C21B9CF006BE696 /* AppDelegate.swift in Sources */,
+				274F88711C22277F00D5302A /* WaveformView.swift in Sources */,
+				275B63DA1C249B510076C151 /* FFTAnalzer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +190,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -220,7 +228,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
@@ -231,8 +239,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = AudioTutorialSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = mmuszynski.AudioTutorialSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -245,6 +255,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = AudioTutorialSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = mmuszynski.AudioTutorialSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -269,6 +280,7 @@
 				274D165A1C21B9CF006BE696 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
