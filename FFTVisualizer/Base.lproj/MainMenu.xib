@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
     </dependencies>
     <objects>
@@ -11,7 +12,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="AudioTutorialSwift" customModuleProvider="target">
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="FFTVisualizer" customModuleProvider="target">
             <connections>
                 <outlet property="urlTextField" destination="qjA-iw-g9R" id="1a8-P3-nv3"/>
                 <outlet property="waveformViewer" destination="NPC-M8-UDb" id="baF-HL-CbX"/>
@@ -671,17 +672,17 @@
         <window title="FFTVisualizer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="213"/>
+            <rect key="contentRect" x="335" y="390" width="651" height="380"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="213"/>
+                <rect key="frame" x="0.0" y="0.0" width="651" height="380"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="NPC-M8-UDb" customClass="WaveformView" customModule="AudioTutorialSwift" customModuleProvider="target">
-                        <rect key="frame" x="20" y="58" width="440" height="135"/>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="NPC-M8-UDb" customClass="WaveformView" customModule="FFTVisualizer" customModuleProvider="target">
+                        <rect key="frame" x="20" y="58" width="611" height="273"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iMM-c1-Jjs">
-                                <rect key="frame" x="192" y="59" width="57" height="17"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iMM-c1-Jjs">
+                                <rect key="frame" x="277" y="128" width="57" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="No Data." id="qWc-SC-P1E">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -689,6 +690,10 @@
                                 </textFieldCell>
                             </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="iMM-c1-Jjs" firstAttribute="centerY" secondItem="NPC-M8-UDb" secondAttribute="centerY" id="2fe-Ex-WoZ"/>
+                            <constraint firstItem="iMM-c1-Jjs" firstAttribute="centerX" secondItem="NPC-M8-UDb" secondAttribute="centerX" id="Y3V-bg-tfD"/>
+                        </constraints>
                         <connections>
                             <outlet property="noDataTextField" destination="iMM-c1-Jjs" id="WXd-XE-bcF"/>
                         </connections>
@@ -702,31 +707,49 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6aP-VG-RRW">
-                        <rect key="frame" x="378" y="13" width="88" height="32"/>
+                        <rect key="frame" x="549" y="13" width="88" height="32"/>
                         <buttonCell key="cell" type="push" title="Analyze" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QQI-Ge-BYh">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                         </buttonCell>
                         <connections>
                             <action selector="analyzeNewFile:" target="Voe-Tx-rLC" id="M7h-9v-VBC"/>
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qjA-iw-g9R">
-                        <rect key="frame" x="53" y="20" width="323" height="22"/>
+                        <rect key="frame" x="53" y="20" width="494" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Type a file location or drag a file here..." drawsBackground="YES" id="YZ0-yG-mt2">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jBo-Rb-i20">
+                        <rect key="frame" x="260" y="337" width="131" height="24"/>
+                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="jex-2D-53Y">
+                            <font key="font" metaFont="system"/>
+                            <segments>
+                                <segment label="Waveform" selected="YES"/>
+                                <segment label="FFT" tag="1"/>
+                            </segments>
+                        </segmentedCell>
+                        <connections>
+                            <action selector="controlDidChange:" target="Voe-Tx-rLC" id="ijC-do-Q8s"/>
+                        </connections>
+                    </segmentedControl>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="xTa-tq-5CK" secondAttribute="bottom" constant="23" id="4UW-QD-dr2"/>
+                    <constraint firstItem="NPC-M8-UDb" firstAttribute="top" secondItem="jBo-Rb-i20" secondAttribute="bottom" constant="8" id="95z-7Q-JeL"/>
                     <constraint firstItem="NPC-M8-UDb" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="K0z-RY-aEF"/>
+                    <constraint firstItem="jBo-Rb-i20" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="NfS-XO-UVJ"/>
                     <constraint firstItem="6aP-VG-RRW" firstAttribute="trailing" secondItem="NPC-M8-UDb" secondAttribute="trailing" id="SxG-bg-mBL"/>
                     <constraint firstItem="6aP-VG-RRW" firstAttribute="leading" secondItem="qjA-iw-g9R" secondAttribute="trailing" constant="8" id="Vor-1M-gaU"/>
                     <constraint firstItem="xTa-tq-5CK" firstAttribute="top" secondItem="NPC-M8-UDb" secondAttribute="bottom" constant="18" id="Yr7-Kz-oie"/>
-                    <constraint firstItem="NPC-M8-UDb" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="b1x-wY-R3z"/>
+                    <constraint firstItem="jBo-Rb-i20" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="gDX-j2-QL7"/>
                     <constraint firstItem="qjA-iw-g9R" firstAttribute="leading" secondItem="xTa-tq-5CK" secondAttribute="trailing" constant="8" id="jTN-aC-Q1N"/>
                     <constraint firstItem="6aP-VG-RRW" firstAttribute="centerY" secondItem="qjA-iw-g9R" secondAttribute="centerY" id="lQU-Qu-pk8"/>
                     <constraint firstItem="xTa-tq-5CK" firstAttribute="leading" secondItem="NPC-M8-UDb" secondAttribute="leading" id="pic-7m-c7M"/>
@@ -734,7 +757,7 @@
                     <constraint firstItem="qjA-iw-g9R" firstAttribute="centerY" secondItem="xTa-tq-5CK" secondAttribute="centerY" id="vum-0K-J12"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="656" y="387.5"/>
+            <point key="canvasLocation" x="741.5" y="471"/>
         </window>
     </objects>
 </document>

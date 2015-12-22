@@ -50,11 +50,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         do {
             try analyzer.performAnalysis()
-            waveformViewer.data = analyzer.fftOutput
+            waveformViewer.fftData = analyzer.fftOutput
+            waveformViewer.waveformData = analyzer.audioData
         } catch {
             let theError = error as! FFTAnalyzerError
             
-            waveformViewer.data = [Float]()
+            waveformViewer.fftData = [Float]()
             let alert = NSAlert()
             alert.messageText = "Error"
             alert.informativeText = theError.description()
@@ -63,6 +64,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             alert.beginSheetModalForWindow(self.window, completionHandler: nil)
         }
     }
+    
+    @IBAction func controlDidChange(sender: AnyObject) {
+        
+        if let control = sender as? NSSegmentedControl {
+            waveformViewer.mode = control.selectedSegment
+        }
+        
+    }
+    
 
 }
 

@@ -22,7 +22,7 @@ enum FFTAnalyzerError: ErrorType {
     func description() -> String {
         switch self {
         case .BadFFTDataProduced:
-            return "Bad FFT data"
+            return "FFT produced NaN"
         case GeneralError(let status):
             return "An unknown error has occurred \(status)"
         case CouldNotGetAudioFileFormat(let status):
@@ -75,13 +75,13 @@ class FFTAnalzer: NSObject {
         }
         
         var clientASBD = AudioStreamBasicDescription()
-        clientASBD.mSampleRate = fileASBD.mSampleRate
+        clientASBD.mSampleRate = sampleRate
         clientASBD.mFormatID = kAudioFormatLinearPCM
         clientASBD.mFormatFlags = kAudioFormatFlagIsFloat
-        clientASBD.mBytesPerPacket = 8
+        clientASBD.mBytesPerPacket = 4
         clientASBD.mFramesPerPacket = 1
-        clientASBD.mBytesPerFrame = 8
-        clientASBD.mChannelsPerFrame = 2
+        clientASBD.mBytesPerFrame = 4
+        clientASBD.mChannelsPerFrame = 1
         clientASBD.mBitsPerChannel = 32
         
         //set the ASBD to be used
@@ -100,13 +100,16 @@ class FFTAnalzer: NSObject {
         
         //initialize a buffer and a place to put the final data
         let bufferFrames = 4096
-        let finalData = UnsafeMutablePointer<Float>(malloc(Int(numberOfFrames) * sizeof(Float.self)))
+        let finalData = UnsafeMutablePointer<Float>.alloc(Int(numberOfFrames) * sizeof(Float.self))
+        defer {
+            finalData.dealloc(Int(numberOfFrames) * sizeof(Float.self))
+        }
         
         //pack all this into a buffer list
         var bufferList = AudioBufferList(
             mNumberBuffers: 1,
             mBuffers: AudioBuffer(
-                mNumberChannels: 2,
+                mNumberChannels: 1,
                 mDataByteSize: UInt32(sizeof(Float.self) * bufferFrames),
                 mData: finalData
             )
@@ -115,27 +118,26 @@ class FFTAnalzer: NSObject {
         //read the data
         var count: UInt32 = 0
         var ioFrames: UInt32 = 4096
-        while count == 0 {
+        while ioFrames > 0 {
             err = ExtAudioFileRead(af, &ioFrames, &bufferList)
             
             guard err == noErr else {
                 throw FFTAnalyzerError.ErrorReadingAudioData(err)
             }
+            count += ioFrames
             
             bufferList = AudioBufferList(
                 mNumberBuffers: 1,
                 mBuffers: AudioBuffer(
-                    mNumberChannels: 2,
-                    mDataByteSize: UInt32(sizeofValue(finalData)),
-                    mData: finalData + Int(ioFrames)
+                    mNumberChannels: 1,
+                    mDataByteSize: UInt32(sizeof(Float.self) * bufferFrames),
+                    mData: finalData + Int(count)
                 )
             )
             
-            count += ioFrames
         }
         
-        audioData = Array(UnsafeMutableBufferPointer(start: finalData, count: Int(count)))
-        
+        audioData = Array(UnsafeMutableBufferPointer(start: finalData, count: Int(numberOfFrames) * sizeof(Float.self)))
         //dispose of the file
         err = ExtAudioFileDispose(af)
         guard err == noErr else {
@@ -151,22 +153,30 @@ class FFTAnalzer: NSObject {
         }
         
         let fft_length = vDSP_Length(log2(CDouble(frames)))
-        //let fft_length: UInt = 16
         let setup = vDSP_create_fftsetup(fft_length, Int32(kFFTRadix2))
         if setup == nil {
             fatalError("Could not setup fft")
         }
         
-        let outReal = UnsafeMutablePointer<Float>(malloc(Int(frames/2) * sizeof(Float.self)))
-        let outImag = UnsafeMutablePointer<Float>(malloc(Int(frames/2) * sizeof(Float.self)))
+        let outReal = UnsafeMutablePointer<Float>.alloc(Int(frames/2) * sizeof(Float.self))
+        defer {
+            outReal.dealloc(Int(frames/2) * sizeof(Float.self))
+        }
+        let outImag = UnsafeMutablePointer<Float>.alloc(Int(frames/2) * sizeof(Float.self))
+        defer {
+            outImag.dealloc(Int(frames/2) * sizeof(Float.self))
+        }
         
         var out = COMPLEX_SPLIT(realp: outReal, imagp: outImag)
-        let dataAsComplex = UnsafePointer<COMPLEX>(finalData)
+        var dataAsComplex = UnsafePointer<COMPLEX>(finalData)
         
         vDSP_ctoz(dataAsComplex, 2, &out, 1, UInt(frames/2))
         vDSP_fft_zip(setup, &out, 1, fft_length, Int32(FFT_FORWARD))
         
-        let power = UnsafeMutablePointer<Float>(malloc(Int(frames/2) * sizeof(Float.self)))
+        let power = UnsafeMutablePointer<Float>.alloc(Int(frames) * sizeof(Float.self))
+        defer {
+            power.dealloc(Int(frames) * sizeof(Float.self))
+        }
         
         for i in 0..<frames/2 {
             power[i] = sqrt(outReal[i] * outReal[i] + outImag[i] * outImag[i])
@@ -177,9 +187,25 @@ class FFTAnalzer: NSObject {
         
         fftOutput = Array(UnsafeMutableBufferPointer(start: power, count: Int(frames/2)))
         
-        free(finalData)
-        free(outReal)
-        free(outImag)
-        free(power)
+        var outputAF = ExtAudioFileRef()
+        let docsPath = "/Users/mike/Desktop/"
+        let filePath = docsPath.stringByAppendingString("file.wav")
+        let outputURL = NSURL(fileURLWithPath: filePath)
+        err = ExtAudioFileCreateWithURL(outputURL, kAudioFileCAFType, &clientASBD, nil, AudioFileFlags.EraseFile.rawValue, &outputAF)
+        guard err == noErr else {
+            fatalError("unhelpful error code is \(err)")
+        }
+        var outputBufferList = AudioBufferList(
+            mNumberBuffers: 1,
+            mBuffers: AudioBuffer(
+                mNumberChannels: 1,
+                mDataByteSize: UInt32(sizeof(Float.self) * Int(numberOfFrames)),
+                mData: finalData
+            )
+        )
+        err = ExtAudioFileWrite(outputAF, UInt32(numberOfFrames), &outputBufferList)
+        guard err == noErr else {
+            fatalError("unhelpful error code is \(err)")
+        }
     }
 }
